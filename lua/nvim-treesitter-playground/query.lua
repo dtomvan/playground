@@ -8,7 +8,7 @@ function M.parse(bufnr, query, lang_tree)
   lang_tree = lang_tree or parsers.get_parser(bufnr)
 
   local success, parsed_query = pcall(function()
-    return vim.treesitter.parse_query(lang_tree:lang(), query)
+    return vim.treesitter.query.parse(lang_tree:lang(), query)
   end)
 
   if not success then
